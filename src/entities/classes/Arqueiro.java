@@ -7,17 +7,17 @@ import entities.Classe;
 import entities.Jogador;
 import rpg.magias.Magia;
 
-public class Guerreiro implements Classe {
+public class Arqueiro implements Classe {
 	private int knownTricks;
 	private Jogador jogador;
 
 	List<Integer> magicSpaces = new ArrayList<>();
 	List<Magia> magias = new ArrayList<>();
 
-	public Guerreiro() {
+	public Arqueiro() {
 	}
 
-	public Guerreiro(int knownTricks, List<Integer> magicSpaces, List<Magia> magias, Jogador jogador) {
+	public Arqueiro(int knownTricks, List<Integer> magicSpaces, List<Magia> magias, Jogador jogador) {
 		this.knownTricks = knownTricks;
 		this.magicSpaces = magicSpaces;
 		this.magias = magias;
@@ -32,9 +32,5 @@ public class Guerreiro implements Classe {
 	@Override
 	public int getMagicATK() {
 		return jogador.getProeficiency() + jogador.getInteligency();
-	}
-
-	@Override
-	public void levelUp() {		
 	}
 }

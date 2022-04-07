@@ -1,6 +1,12 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import rpg.itens.Item;
+
 public class Jogador {
+	private int moeda;
 	private int vida;
 	private int forca;
 	private int destreza;
@@ -9,15 +15,16 @@ public class Jogador {
 	private int sabedoria;
 	private double exp;
 	private int level;
-	
+
 	private Classe classe;
-	
-	//List<>
-	
+
+	List<Item> inventario = new ArrayList<>();
+
 	public Jogador() {
 	}
 
-	public Jogador(int vida, int forca, int destreza, int constituicao, int inteligencia, int sabedoria, Classe classe) {
+	public Jogador(int vida, int forca, int destreza, int constituicao, int inteligencia, int sabedoria,
+			Classe classe) {
 		this.vida = vida;
 		this.forca = forca;
 		this.destreza = destreza;
@@ -26,6 +33,7 @@ public class Jogador {
 		this.sabedoria = sabedoria;
 		this.exp = 0;
 		this.classe = classe;
+		inventario = null;
 	}
 
 	public int getVida() {
@@ -60,21 +68,29 @@ public class Jogador {
 		return level;
 	}
 	
-	public int getCD() {
-		return 8 + getProeficiency() + getInteligency();
+	public Classe getClasse() {
+		return classe;
 	}
-	
+
+	public int getCD() {
+		return classe.getCD();
+	}
+
+	public int getMagicATK() {
+		return classe.getMagicATK();
+	}
+
 	public int getProeficiency() {
-		if(getLevel() < 5) {
+		if (getLevel() < 5) {
 			return 2;
 		}
-		if(getLevel() < 9) {
+		if (getLevel() < 9) {
 			return 3;
 		}
-		if(getLevel() < 13) {
+		if (getLevel() < 13) {
 			return 4;
 		}
-		if(getLevel() < 17) {
+		if (getLevel() < 17) {
 			return 5;
 		}
 		return 6;
@@ -87,11 +103,11 @@ public class Jogador {
 	public int getDexterity() {
 		return getModifier(getDestreza());
 	}
-	
+
 	public int getInteligency() {
 		return getModifier(getInteligencia());
 	}
-	
+
 	public int getModifier(int attribute) {
 		if (attribute < 10) {
 			return -1;
@@ -113,4 +129,11 @@ public class Jogador {
 		}
 		return 5;
 	}
+	
+	public void levelUp() {
+		level++;
+		classe.levelUp();
+	}
 }
+
+

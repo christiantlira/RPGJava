@@ -12,4 +12,6 @@ public interface Classe {
 	int getCD();
 	
 	int getMagicATK();
+
+	void levelUp();
 }
