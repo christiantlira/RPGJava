@@ -33,4 +33,10 @@ public class Arqueiro implements Classe {
 	public int getMagicATK() {
 		return jogador.getProeficiency() + jogador.getInteligency();
 	}
+
+	@Override
+	public void levelUp() {
+		// TODO Auto-generated method stub
+		
+	}
 }

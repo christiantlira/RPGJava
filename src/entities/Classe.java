@@ -1,17 +1,20 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import entities.classes.concretes.MagoConcrete;
+import enums.classe.Classes;
 
-import rpg.magias.Magia;
-
-public interface Classe {
-
-	List<Magia> magias = new ArrayList<>();
+public abstract class Classe {	
+	private Jogador jogador = new Jogador();
+	private Classes classe;
 	
-	int getCD();
-	
-	int getMagicATK();
+	public Classe() {
+	}
 
-	void levelUp();
+	public Classe(Jogador jogador, Classes classe ) {
+		this.jogador = jogador;
+		if(classe.equals(Classes.MAGO)) {
+			MagoConcrete mago = new MagoConcrete();
+			
+		}
+	}
 }

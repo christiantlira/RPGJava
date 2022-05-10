@@ -1,4 +1,4 @@
-package rpg;
+package rpg.itens;
 
 public enum TipoDano {
 	FISICO,

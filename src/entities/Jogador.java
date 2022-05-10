@@ -34,26 +34,15 @@ public class Jogador {
 		this.exp = 0;
 		this.classe = classe;
 		inventario = null;
+		magicSpaces = new int[9];
 	}
 
 	public int getVida() {
 		return vida;
 	}
 
-	public int getForca() {
-		return forca;
-	}
-
-	public int getDestreza() {
-		return destreza;
-	}
-
 	public int getConstituicao() {
 		return constituicao;
-	}
-
-	public int getInteligencia() {
-		return inteligencia;
 	}
 
 	public int getSabedoria() {
@@ -70,6 +59,14 @@ public class Jogador {
 	
 	public Classe getClasse() {
 		return classe;
+	}
+	
+	public int getKnownTrick() {
+		return knownTricks;
+	}
+	
+	public void increaseKnownTricks() {
+		knownTricks++;
 	}
 
 	public int getCD() {
@@ -97,15 +94,15 @@ public class Jogador {
 	}
 
 	public int getStrength() {
-		return getModifier(getForca());
+		return getModifier(forca);
 	}
 
 	public int getDexterity() {
-		return getModifier(getDestreza());
+		return getModifier(destreza);
 	}
 
 	public int getInteligency() {
-		return getModifier(getInteligencia());
+		return getModifier(inteligencia);
 	}
 
 	public int getModifier(int attribute) {
