@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Classe;
+import entities.Jogador;
 import entities.classes.Mago;
 import rpg.magias.Magia;
 import rpg.magias.MagiaException;
@@ -17,11 +18,13 @@ public class MagoConcrete extends Classe implements Mago {
 	List<Magia> magias = new ArrayList<>();
 
 	public MagoConcrete() {
+		increaseMagicSpaces();
+		knownTricks = 3;
 	}
 
 	@Override
 	public boolean canAdd(Magia magia) {
-		if (magicSpaces[magia.getLevel() - 1] < 1) {
+		if (magicSpaces[magia.getLevel() - 1] == 0) {
 			return false;
 		}
 		return true;
@@ -97,10 +100,10 @@ public class MagoConcrete extends Classe implements Mago {
 	@Override
 	public void increaseKnownTricks() {
 		if (jogador.getLevel() == 4) {
-			jogador.increaseKnownTricks();
+			knownTricks++;
 		}
 		if (jogador.getLevel() == 10) {
-			jogador.increaseKnownTricks();
+			knownTricks++;
 		}
 	}
 

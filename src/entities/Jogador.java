@@ -34,7 +34,6 @@ public class Jogador {
 		this.exp = 0;
 		this.classe = classe;
 		inventario = null;
-		magicSpaces = new int[9];
 	}
 
 	public int getVida() {
@@ -59,14 +58,6 @@ public class Jogador {
 	
 	public Classe getClasse() {
 		return classe;
-	}
-	
-	public int getKnownTrick() {
-		return knownTricks;
-	}
-	
-	public void increaseKnownTricks() {
-		knownTricks++;
 	}
 
 	public int getCD() {
