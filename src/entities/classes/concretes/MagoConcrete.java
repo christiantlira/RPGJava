@@ -118,6 +118,7 @@ public class MagoConcrete extends Classe implements Mago {
 	}
 
 	public int getCD() {
+		System.out.println("Level na camada mago concrente: " + jogador.getLevel());
 		return 8 + jogador.getProeficiency() + jogador.getInteligency();
 	}
 	

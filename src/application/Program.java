@@ -14,6 +14,7 @@ public class Program {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Jogador jogador = null;
+		Classe classe = null;
 
 		System.out.println("Começando a criação do seu personagem");
 		System.out.print("Qual será o nome do seu personagem? ");
@@ -23,19 +24,18 @@ public class Program {
 		System.out.printf("1) GUERREIRO\n2) MAGO\n3) ARQUEIRO\n");
 		int choice = sc.nextInt();
 		if (choice == 1) {
-			Classe classe = new GuerreiroConcrete();
-			jogador = new Jogador(nome, classe);
-			classe.setJogador(jogador);
+			Classe classe2 = new GuerreiroConcrete();
+			classe = classe2;
 		} else if (choice == 2) {
-			Classe classe = new MagoConcrete();
-			jogador = new Jogador(nome, classe);
-			classe.setJogador(jogador);
+			Classe classe2 = new MagoConcrete();
+			classe = classe2;
 		} else if (choice == 3) {
-			Classe classe = new ArqueiroConcrete();
-			jogador = new Jogador(nome, classe);
-			classe.setJogador(jogador);
+			Classe classe2 = new ArqueiroConcrete();
+			classe = classe2;
 		}
-
+		jogador = new Jogador(nome, classe);
+		classe.setJogador(jogador);
+		
 		System.out.println(jogador);
 		System.out.println("CD: " + jogador.getCD());
 		sc.close();

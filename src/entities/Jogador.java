@@ -27,9 +27,8 @@ public class Jogador {
 
 	public Jogador(String nome, Classe classe) {
 		this.nome = nome;
-		this.classe = classe;
 		this.exp = 0;
-		level = 20;
+		level = 7;
 		inventario = null;
 	}
 
@@ -54,20 +53,19 @@ public class Jogador {
 	}
 
 	public int getProeficiency() {
-		if (getLevel() < 5) {
+		if(getLevel() < 5) {
 			return 2;
 		}
 		if (getLevel() < 9) {
 			return 3;
 		}
-		if (getLevel() < 13) {
+		if(getLevel() < 13) {
 			return 4;
 		}
-		if (getLevel() < 17) {
+		if(getLevel()< 17) {
 			return 5;
-		} else {
-			return 6;
 		}
+		return 6;
 	}
 
 	public int getStrength() {
@@ -167,7 +165,7 @@ public class Jogador {
 
 	@Override
 	public String toString() {
-		return nome + ", " + classe.getNome() + ", " + getLevel();
+		return nome + ", classe: " + classe.getNome() + ", level: " + getLevel();
 	}
 
 }
