@@ -1,10 +1,5 @@
 package entities.classes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import entities.AbstractClasse;
-import entities.Classe;
 import entities.Jogador;
 import rpg.magias.Magia;
 
@@ -15,14 +10,11 @@ public interface Mago {
 	void addMagic(Magia magia);
 	void increaseMagicSpaces();
 	void increaseKnownTricks();
+	void setJogador(Jogador jogador);
 	
-	default int getCD() {
-		return 8 + jogador.getProeficiency() + jogador.getInteligency();
-	}
+	int getCD();
 	
-	default int getMagicATK() {
-		return jogador.getProeficiency() + jogador.getInteligency();
-	}
+	int getMagicATK();
 	
 	default void levelUp() {
 		increaseKnownTricks();

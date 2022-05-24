@@ -6,45 +6,37 @@ import entities.classes.concretes.MagoConcrete;
 import enums.classe.Classes;
 
 public abstract class Classe {	
-	private Jogador jogador = new Jogador();
-	private Classes classe;
-	private int CD;
-	private int magicATK;
-	private MagoConcrete mago;
-	private GuerreiroConcrete guerreiro;
-	private ArqueiroConcrete arqueiro;
+	private Jogador jogador;
+	private Classes classEnum;
+	private String nome;
+	private Classe classe;
 	
-	public Classe() {
+	public Classe(String nome) {
+		this.nome = nome;
 	}
-
-	public Classe(Jogador jogador, Classes classe ) {
-		this.jogador = jogador;
+	
+	public void setClasse(Classe classe) {
 		this.classe = classe;
-		if(classe.equals(Classes.MAGO)) {
-			mago = new MagoConcrete();
-			guerreiro = null;
-			arqueiro = null;
-		}
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setJogador(Jogador jogador) {
+		this.jogador = jogador;
+		
 	}
 	
 	public int getCD() {
-		return mago.getCD();
+		return classe.getCD();
 	}
 	
 	public int getMagicATK() {
-		return mago.getMagicATK();
+		return classe.getMagicATK();
 	}
 	
 	public void levelUp() {
-		if(classe.equals(Classes.MAGO)) {
-			mago.levelUp();
-		}
-		if(classe.equals(Classes.GUERREIRO)) {
-			guerreiro.levelUp();
-		}
-		if(classe.equals(Classes.PATRULHEIRO)) {
-			patrulheiro.levelUp();
-		}
-		
+		classe.levelUp();
 	}
 }

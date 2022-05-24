@@ -6,20 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Classe;
-import entities.Jogador;
 import entities.classes.Mago;
 import rpg.magias.Magia;
 import rpg.magias.MagiaException;
 
 public class MagoConcrete extends Classe implements Mago {
-
 	private int knownTricks;
 	private int[] magicSpaces = new int[9];
 	List<Magia> magias = new ArrayList<>();
 
 	public MagoConcrete() {
+		super("Mago");
+		this.setClasse(this);
 		increaseMagicSpaces();
 		knownTricks = 3;
+		setAttributes();
 	}
 
 	@Override
@@ -107,4 +108,21 @@ public class MagoConcrete extends Classe implements Mago {
 		}
 	}
 
+	public void setAttributes() {
+		jogador.setForca(8);
+		jogador.setConstituicao(12);
+		jogador.setDestreza(12);
+		jogador.setSabedoria(10);
+		jogador.setInteligencia(14);
+		jogador.setCarisma(10);
+	}
+
+	public int getCD() {
+		return 8 + jogador.getProeficiency() + jogador.getInteligency();
+	}
+	
+	public int getMagicATK() {
+		return jogador.getProeficiency() + jogador.getInteligency();
+	}
+	
 }

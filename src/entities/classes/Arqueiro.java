@@ -25,4 +25,13 @@ public interface Arqueiro {
 	default void levelUp() {
 		increaseMagicSpaces();
 	}
+	
+	default void setAttributes() {
+		jogador.setForca(12);
+		jogador.setConstituicao(10);
+		jogador.setDestreza(14);
+		jogador.setSabedoria(12);
+		jogador.setInteligencia(8);
+		jogador.setCarisma(10);
+	}
 }

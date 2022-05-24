@@ -6,11 +6,13 @@ import java.util.List;
 import rpg.itens.Item;
 
 public class Jogador {
+	public String nome;
 	private int moeda;
 	private int vida;
 	private int forca;
 	private int destreza;
 	private int constituicao;
+	private int carisma;
 	private int inteligencia;
 	private int sabedoria;
 	private double exp;
@@ -23,29 +25,12 @@ public class Jogador {
 	public Jogador() {
 	}
 
-	public Jogador(int vida, int forca, int destreza, int constituicao, int inteligencia, int sabedoria,
-			Classe classe) {
-		this.vida = vida;
-		this.forca = forca;
-		this.destreza = destreza;
-		this.constituicao = constituicao;
-		this.inteligencia = inteligencia;
-		this.sabedoria = sabedoria;
-		this.exp = 0;
+	public Jogador(String nome, Classe classe) {
+		this.nome = nome;
 		this.classe = classe;
+		this.exp = 0;
+		level = 20;
 		inventario = null;
-	}
-
-	public int getVida() {
-		return vida;
-	}
-
-	public int getConstituicao() {
-		return constituicao;
-	}
-
-	public int getSabedoria() {
-		return sabedoria;
 	}
 
 	public double getExp() {
@@ -55,7 +40,7 @@ public class Jogador {
 	public int getLevel() {
 		return level;
 	}
-	
+
 	public Classe getClasse() {
 		return classe;
 	}
@@ -80,8 +65,9 @@ public class Jogador {
 		}
 		if (getLevel() < 17) {
 			return 5;
+		} else {
+			return 6;
 		}
-		return 6;
 	}
 
 	public int getStrength() {
@@ -117,11 +103,71 @@ public class Jogador {
 		}
 		return 5;
 	}
-	
+
 	public void levelUp() {
 		level++;
 		classe.levelUp();
 	}
+
+	public int getForca() {
+		return forca;
+	}
+
+	public void setForca(int forca) {
+		this.forca = forca;
+	}
+
+	public int getDestreza() {
+		return destreza;
+	}
+
+	public void setDestreza(int destreza) {
+		this.destreza = destreza;
+	}
+
+	public int getCarisma() {
+		return carisma;
+	}
+
+	public void setCarisma(int carisma) {
+		this.carisma = carisma;
+	}
+
+	public int getInteligencia() {
+		return inteligencia;
+	}
+
+	public void setInteligencia(int inteligencia) {
+		this.inteligencia = inteligencia;
+	}
+
+	public void setConstituicao(int constituicao) {
+		this.constituicao = constituicao;
+	}
+
+	public void setSabedoria(int sabedoria) {
+		this.sabedoria = sabedoria;
+	}
+
+	public int getVida() {
+		return vida;
+	}
+
+	public int getConstituicao() {
+		return constituicao;
+	}
+
+	public int getSabedoria() {
+		return sabedoria;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+	@Override
+	public String toString() {
+		return nome + ", " + classe.getNome() + ", " + getLevel();
+	}
+
 }
-
-

@@ -13,11 +13,15 @@ import rpg.magias.MagiaException;
 
 public class ArqueiroConcrete extends Classe implements Arqueiro {
 
+	public String nome;
 	private int[] magicSpaces = new int[5];
 	List<Magia> magias = new ArrayList<>();
 
 	public ArqueiroConcrete() {
+		super("Arqueiro");
+		this.setClasse(this);
 		increaseMagicSpaces();
+		setAttributes();
 	}
 
 	@Override
